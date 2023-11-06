@@ -1,0 +1,74 @@
+/* Login.css */
+
+/* Styles for the overlay behind the dialog */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(5px); /* Add background blur */
+}
+
+/* Styles for the dialog box */
+.login-dialog {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 320px;
+  text-align: center;
+  position: relative;
+}
+
+/* Styles for the dialog box title (e.g., "Login") */
+.login-dialog h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Styles for the input fields and buttons */
+.login-dialog input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-dialog button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.login-dialog button:hover {
+  background: #0056b3;
+}
+
+/* Styles for the "Forgot password" and "Create an account" links */
+.login-dialog p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+/* Close button to close the dialog */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+  z-index: 1; /* Ensure the close button appears above the dialog */
+}
