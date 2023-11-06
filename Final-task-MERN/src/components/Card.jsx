@@ -17,7 +17,7 @@ export default function Card() {
           type="button"
           className="mt-4 rounded-sm bg-black px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
-          Read
+          View
         </button>
       </div>
     </div>
