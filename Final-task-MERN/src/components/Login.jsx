@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "../css/Login.css";
+import { Link, useNavigate } from "react-router-dom";
 
-const Login = ({ onClose }) => {
+const Login = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const onClose = () => {
+    navigate("/")
+
+    document.querySelector(".login-overlay").classList.add("closed")
+  }
 
   const handleLogin = () => {
     // Handle login logic here
@@ -17,7 +25,7 @@ const Login = ({ onClose }) => {
         </span>
         <h2>Login</h2>
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -29,8 +37,11 @@ const Login = ({ onClose }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={handleLogin}>Login</button>
-        <p>Forgot password?</p>
-        <p>Create an account</p>
+        <p className="text-blue-500">Forgot password?</p>
+        <Link
+        to={"/signin"}
+        className="text-blue-500"
+        >Create an account</Link>
       </div>
     </div>
   );

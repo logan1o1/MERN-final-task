@@ -1,5 +1,8 @@
 /* Login.css */
 
+.login-overlay.closed {
+  display: none;
+}
 
 .login-overlay {
     position: fixed;
