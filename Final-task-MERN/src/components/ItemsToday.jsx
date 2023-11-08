@@ -9,18 +9,6 @@ export default function ItemsToday() {
           description: "This is a description of the first auction.",
           imageUrl: "https://placehold.it/300x200",
         },
-        {
-          id: 2,
-          title: "Auction 2",
-          description: "This is a description of the second auction.",
-          imageUrl: "https://placehold.it/300x200",
-        },
-        {
-          id: 3,
-          title: "Auction 3",
-          description: "This is a description of the third auction.",
-          imageUrl: "https://placehold.it/300x200",
-        },
       ];
 
     //   const allAuctions = [
@@ -45,7 +33,7 @@ export default function ItemsToday() {
     //   ];
     
   return (
-    <div className="home-page">
+    <div className="home-page w-full">
 
       <main>
         <section className="featured-auctions font-bold text-2xl">
