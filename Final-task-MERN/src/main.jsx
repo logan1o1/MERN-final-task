@@ -12,7 +12,7 @@ import Signin from './components/Signin.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element= {<App/>}>
-      <Route path='' element= {<Home/>} />
+      <Route path='/' element= {<Home/>} />
       <Route path='/todayItems' element= {<ItemsToday/>}/>
       <Route path='/addItems' element={<AddItems/>} />
       <Route path='/login' element= {<Login/>} />
