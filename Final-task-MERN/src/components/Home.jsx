@@ -1,10 +1,38 @@
-import React from 'react'
+// src/components/Home.jsx
+import React, { useEffect, useState } from "react";
+import BackgroundImage from "./BackgroundImage";
 
-export default function Home() {
+const Home = () => {
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    
+    const timeout = setTimeout(() => {
+      setFadeIn(true);
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const text =
+    "Welcome to [Auction Website Name], your one-stop shop for amazing deals and exciting auctions! Discover a wide variety of items up for bid, from electronics and collectibles to cars and antiques. With our user-friendly platform, you can easily browse, bid, and win the items you've always wanted. So start bidding today and see what treasures await you!";
+
+  const words = text.split(" ");
+
   return (
-    <div className='w-full'>
-      <h1 className='font-bold text-2xl'>About our website</h1>
-      <div className='w-full'></div>
-    </div>
-  )
-}
+    <BackgroundImage imageUrl="/Images/Bg.jpg">
+      <div className={`text-white absolute top-0 left-0 p-8 transition-opacity duration-1000 ${fadeIn ? "opacity-100" : "opacity-0"}`}>
+        <h1 className="font-bold text-2xl">
+          {words.map((word, index) => (
+            <span key={index} className="word">
+              {word}{" "}
+            </span>
+          ))}
+        </h1>
+        {/* Add more content as needed */}
+      </div>
+    </BackgroundImage>
+  );
+};
+
+export default Home;
