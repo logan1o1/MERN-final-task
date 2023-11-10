@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import '../css/Btn.css'
 
 export default function AddItems() {
   const [itemName, setItemName] = useState("");
   const [itemImage, setItemImage] = useState("");
   const [sellerName, setSellerName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
-  const [minimumBid, setMinimumBid] = useState(0);
+  const [minimumBid, setMinimumBid] = useState( );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -56,7 +57,7 @@ export default function AddItems() {
           onChange={(event) => setMinimumBid(event.target.value)}
         />
 
-        <div className="pl-50%  space-y-2 justify-center">
+        <div className="btn pl-50%  space-y-2 justify-center">
           <button
             type="submit"
             className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black "
