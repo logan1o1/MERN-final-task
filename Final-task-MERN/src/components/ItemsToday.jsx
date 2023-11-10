@@ -37,7 +37,7 @@ export default function ItemsToday() {
 
       <main>
         <section className="featured-auctions font-bold text-2xl">
-          <h1>Featured Auctions</h1>
+          <h1 className='text-center'>Featured Auctions</h1>
           <div className="auction-carousel flex ">
             {featuredAuctions.map((auction) => (
               <Card key={auction.id} auction={auction} />

@@ -13,7 +13,7 @@ export default function AddItems() {
   };
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center ">
       <h1 className="text-center text-2xl font-bold">Add Item to Auction</h1>
 
       <form className="flex flex-col mt-10" onSubmit={handleSubmit}>
@@ -60,7 +60,7 @@ export default function AddItems() {
         <div className="btn pl-50%  space-y-2 justify-center">
           <button
             type="submit"
-            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black "
+            className="rounded-lg bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black "
           >
             Add Item
           </button>
