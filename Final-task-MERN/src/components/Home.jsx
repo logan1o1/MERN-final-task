@@ -5,14 +5,19 @@ import BackgroundImage from "./BackgroundImage";
 const Home = () => {
   const [fadeIn, setFadeIn] = useState(false);
 
-  useEffect(() => {
-    
-    const timeout = setTimeout(() => {
-      setFadeIn(true);
-    }, 500);
+  setTimeout(() => {
+    setFadeIn(true);
+  }, 500);
+  
 
-    return () => clearTimeout(timeout);
-  }, []);
+  // useEffect(() => {
+    
+    // const timeout = setTimeout(() => {
+    //   setFadeIn(true);
+    // }, 500);
+
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   const text =
     "Welcome to [Auction Website Name], your one-stop shop for amazing deals and exciting auctions! Discover a wide variety of items up for bid, from electronics and collectibles to cars and antiques. With our user-friendly platform, you can easily browse, bid, and win the items you've always wanted. So start bidding today and see what treasures await you!";

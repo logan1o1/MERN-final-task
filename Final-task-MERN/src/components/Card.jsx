@@ -9,9 +9,9 @@ export default function Card() {
         className="h-[200px] w-full rounded-md object-cover"
       />
       <div className="p-4">
-        <h1 className="text-lg font-semibold">About Macbook</h1>
+        <h1 className="text-lg font-semibold">Macbook limited edition</h1>
         <p className="mt-3 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, debitis?
+          A limited edition Macbook studded with clear 20 carret diamonds 
         </p>
         <button
           type="button"
