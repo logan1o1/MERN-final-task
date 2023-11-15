@@ -61,7 +61,7 @@ export default function Signup() {
         />
         <button onClick={handleSignup}>Sign up</button>
         <br />
-        <Link to={"/login"} className="text-blue-500">
+        <Link to={"/"} className="text-blue-500">
           Alredy have an account
         </Link>
       </div>

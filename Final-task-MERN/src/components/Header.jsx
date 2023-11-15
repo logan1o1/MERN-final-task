@@ -77,7 +77,7 @@ export default function Header() {
                 <>
                 <li>
                 <NavLink
-                  to="/todayItems"
+                  to="/items"
                   className={({ isActive }) =>
                     `block py-2 pr-4 pl-3 duration-200 ${
                       isActive ? "text-black-600" : "text-white"
@@ -89,7 +89,7 @@ export default function Header() {
               </li>
               <li>
                 <NavLink
-                  to="/addItems"
+                  to="/add"
                   className={({ isActive }) =>
                     `block py-2 pr-4 pl-3 duration-200 ${
                       isActive ? "text-black-600" : "text-white"
