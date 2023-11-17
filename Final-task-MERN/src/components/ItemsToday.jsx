@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function ItemsToday() {
   const [items, setItems] = useState([]);
@@ -22,9 +23,9 @@ export default function ItemsToday() {
       <main>
         <section className="featured-auctions font-bold text-2xl">
           <h1 className="text-center">Featured Items</h1>
-          <div className="auction-carousel flex lg:space-x-3 pt-4 pb-4 pl-9 pr-9">
+          <div className="auction-carousel flex lg:space-x-3 pt-4 pb-4 pl-4 pr-74">
             {items.length > 0 ? (
-              items.map((items) => ( 
+              items.map((items) => (
                 <div className="w-[300px] rounded-md border">
                   <img
                     src={String(items.image)}
@@ -34,12 +35,14 @@ export default function ItemsToday() {
                   <div className="p-4">
                     <h1 className="text-lg font-semibold">{items.name}</h1>
                     <p className="mt-3 text-sm text-gray-600">{items.desc}</p>
-                    <button
-                      type="button"
-                      className="mt-4 rounded-sm bg-black px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      View
-                    </button>
+                    <Link to="/item">
+                      <button
+                        type="button"
+                        className="mt-4 rounded-sm bg-black px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                      >
+                        View
+                      </button>
+                    </Link>
                   </div>
                 </div>
               ))

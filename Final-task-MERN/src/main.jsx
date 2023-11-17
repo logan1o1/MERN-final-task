@@ -8,6 +8,7 @@ import ItemsToday from './components/ItemsToday.jsx'
 import AddItems from './components/AddItems.jsx'
 import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
+import Item from './components/Item.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path='/login' element= {<Login/>} />
       <Route path='/signup' element= {<Signup/>} />
       <Route path='/logout' />
+      <Route path='/item' element={<Item/>} />
 
     </Route>
   )
