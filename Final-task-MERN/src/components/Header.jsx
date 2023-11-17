@@ -72,6 +72,18 @@ export default function Header() {
                   Home
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/item"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 duration-200 ${
+                      isActive ? "text-black-600" : "text-white"
+                    } hover:text-blue-300 lg-p-0 transition-all duration-300`
+                  }
+                >
+                  Item
+                </NavLink>
+              </li>
               {
                 auth ? 
                 <>
