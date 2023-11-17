@@ -57,7 +57,7 @@ const Login = () => {
         />
         <button onClick={handleLogin}>Login</button>
         <p className="text-blue-500">Forgot password?</p>
-        <Link to={"/signin"} className="text-blue-500">
+        <Link to={"/signup"} className="text-blue-500">
           Create an account
         </Link>
       </div>

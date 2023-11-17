@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function ItemsToday() {
   const [items, setItems] = useState([]);
+  const usId = JSON.parse(localStorage.getItem("user"))._id
 
   useEffect(() => {
     getItems();
@@ -11,6 +12,7 @@ export default function ItemsToday() {
   const getItems = async () => {
     let result = await fetch("http://localhost:4000/items");
     result = await result.json();
+    console.log(result);
 
     setItems(result);
     // items.map((items) => console.log(typeof(items.image)))
@@ -26,6 +28,7 @@ export default function ItemsToday() {
           <div className="auction-carousel flex lg:space-x-3 pt-4 pb-4 pl-4 pr-74">
             {items.length > 0 ? (
               items.map((items) => (
+                items.userId === usId ? <></> :
                 <div className="w-[300px] rounded-md border">
                   <img
                     src={String(items.image)}
@@ -35,14 +38,12 @@ export default function ItemsToday() {
                   <div className="p-4">
                     <h1 className="text-lg font-semibold">{items.name}</h1>
                     <p className="mt-3 text-sm text-gray-600">{items.desc}</p>
-                    <Link to="/item">
-                      <button
-                        type="button"
-                        className="mt-4 rounded-sm bg-black px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                      >
-                        View
-                      </button>
-                    </Link>
+                    <button
+                      type="button"
+                      className="mt-4 rounded-sm bg-black px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    >
+                      <Link to={`/item/${items._id}`}>View</Link>
+                    </button>
                   </div>
                 </div>
               ))
