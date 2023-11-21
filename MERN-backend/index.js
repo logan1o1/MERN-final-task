@@ -8,7 +8,7 @@ const Bidd = require('./db/Bidding')
 
 const app = express()
 const corsOption = {
-    origin: ['http://localhost:5173'],
+    origin: ['https://mern-final-task-auction.vercel.app/'],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 }
