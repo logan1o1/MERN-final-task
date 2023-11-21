@@ -12,12 +12,9 @@ export default function ItemsToday() {
   const getItems = async () => {
     let result = await fetch("http://localhost:4000/items");
     result = await result.json();
-    console.log(result);
+    // console.log(result);
 
     setItems(result);
-    // items.map((items) => console.log(typeof(items.image)))
-    // console.log(typeof items);
-    // console.log(typeof String(items.image));
   };
 
   return (

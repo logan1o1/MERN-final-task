@@ -35,7 +35,7 @@ export default function Signup() {
   });
 
   return (
-    <div className="login-overlay">
+    <div className="login-overlay text-black">
       <div className="login-dialog">
         <span className="close-button" onClick={onClose}>
           &#x2716;

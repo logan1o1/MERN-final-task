@@ -29,20 +29,22 @@ export default function Header() {
           </Link>
           <div className="flex items-center lg:order-2">
             {auth ? (
-              <Link
-                to="/login"
-                className="text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none transition-all duration-300"
-                onClick={logout}
-              >
-                Logout
-              </Link>
+              <>
+                <Link
+                  to="/login"
+                  className="text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none transition-all duration-300"
+                  onClick={logout}
+                >
+                  Logout
+                </Link>
+              </>
             ) : (
               <>
                 <Link
                   to="/login"
                   className="text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none transition-all duration-300"
                   onClick={openLoginDialog}
-                > 
+                >
                   Log in
                 </Link>
                 <Link
@@ -72,74 +74,61 @@ export default function Header() {
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/item"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-black-600" : "text-white"
-                    } hover:text-blue-300 lg-p-0 transition-all duration-300`
-                  }
-                >
-                  Item
-                </NavLink>
-              </li>
-              {
-                auth ? 
+              {auth ? (
                 <>
-                <li>
-                <NavLink
-                  to="/items"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-black-600" : "text-white"
-                    } hover:text-blue-300 lg-p-0 transition-all duration-300`
-                  }
-                >
-                  Today's Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/add"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-black-600" : "text-white"
-                    } hover:text-blue-300 lg-p-0 transition-all duration-300`
-                  }
-                >
-                  Sell Items
-                </NavLink>
-              </li>
-                </> :
-                <>
-                <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-black-600" : "text-white"
-                    } hover:text-blue-300 lg-p-0 transition-all duration-300`
-                  }
-                >
-                  Today's Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-black-600" : "text-white"
-                    } hover:text-blue-300 lg-p-0 transition-all duration-300`
-                  }
-                >
-                  Sell Items
-                </NavLink>
-              </li>
+                  <li>
+                    <NavLink
+                      to="/items"
+                      className={({ isActive }) =>
+                        `block py-2 pr-4 pl-3 duration-200 ${
+                          isActive ? "text-black-600" : "text-white"
+                        } hover:text-blue-300 lg-p-0 transition-all duration-300`
+                      }
+                    >
+                      Today's Items
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/add"
+                      className={({ isActive }) =>
+                        `block py-2 pr-4 pl-3 duration-200 ${
+                          isActive ? "text-black-600" : "text-white"
+                        } hover:text-blue-300 lg-p-0 transition-all duration-300`
+                      }
+                    >
+                      Sell Items
+                    </NavLink>
+                  </li>
                 </>
-              }
-              
+              ) : (
+                <>
+                  <li>
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        `block py-2 pr-4 pl-3 duration-200 ${
+                          isActive ? "text-black-600" : "text-white"
+                        } hover:text-blue-300 lg-p-0 transition-all duration-300`
+                      }
+                    >
+                      Today's Items
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        `block py-2 pr-4 pl-3 duration-200 ${
+                          isActive ? "text-black-600" : "text-white"
+                        } hover:text-blue-300 lg-p-0 transition-all duration-300`
+                      }
+                    >
+                      Sell Items
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

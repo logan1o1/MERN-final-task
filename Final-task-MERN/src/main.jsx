@@ -9,6 +9,7 @@ import AddItems from './components/AddItems.jsx'
 import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Item from './components/Item.jsx'
+import PlaceBid from './components/PlaceBid.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,8 +20,8 @@ const router = createBrowserRouter(
       <Route path='/login' element= {<Login/>} />
       <Route path='/signup' element= {<Signup/>} />
       <Route path='/logout' />
-      <Route path='/item' element={<Item/>} />
-
+      <Route path='/item/:id' element={<Item/>} />
+      <Route path='/bidd/:id' element={<PlaceBid/>} />
     </Route>
   )
 )

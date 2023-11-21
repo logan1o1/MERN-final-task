@@ -29,10 +29,10 @@ export default function AddItems() {
   };
 
   return (
-    <div className="flex flex-col justify-center ">
+    <div className="flex flex-col justify-center pl-28 pr-28">
       <h1 className="text-center text-2xl font-bold">Add Item to Auction</h1>
 
-      <form className="flex flex-col mt-10" onSubmit={addItems}>
+      <form className="flex flex-col mt-7" onSubmit={addItems}>
         <label htmlFor="name">Item Name</label>
         <input
           type="text"
