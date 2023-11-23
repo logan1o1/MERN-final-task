@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Item = () => {
-  let [bid, setBid] = useState("");
-  // const [minBid, setMinBid] = useState("")
-  const [topBidder, setTopBidder] = useState("");
-  // const [timerSeconds, setTimerSeconds] = useState(5);
+  const [timerSeconds, setTimerSeconds] = useState(0);
   // const [previousBids, setPreviousBids] = useState([]);
   // const bidInputRef = useRef(null);
+  const [bid, setBid] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [seller, setSeller] = useState("");
@@ -42,9 +40,7 @@ const Item = () => {
       },
     });
     bids = await bids.json();
-    // console.log(bid);
-    setBid(bids.bid);
-    // console.log(bid);
+    localStorage.setItem("bidData", JSON.stringify(bids));
   };
 
   useEffect(() => {
@@ -53,8 +49,9 @@ const Item = () => {
   }, []);
 
   const handleBid = async () => {
+    const bidId = JSON.parse(localStorage.getItem("bidData"))._id;
     try {
-      let newBid = await fetch(`http://localhost:4000/bidd/${params.id}`, {
+      let newBid = await fetch(`http://localhost:4000/bidd/${bidId}`, {
         method: "put",
         body: JSON.stringify({ bid }),
         headers: {
@@ -63,7 +60,6 @@ const Item = () => {
       });
       newBid = await newBid.json();
       console.log(newBid);
-      console.log(params.id);
 
       if (newBid.acknowledged) {
         setBid(bid);
@@ -75,6 +71,19 @@ const Item = () => {
       console.error("Error updating bid:", error);
     }
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (timerSeconds === 0) {
+        setTimerSeconds((prevSeconds) => prevSeconds + 1);
+      }
+      if (timerSeconds === 5) {
+        setTimerSeconds(0);
+      }
+    }, 5000);
+
+    clearInterval(timer);
+  }, [handleBid]);
 
   return (
     <div className="container mx-auto bg-gray-900 text-gray-100 p-8 min-h-screen">
@@ -110,30 +119,31 @@ const Item = () => {
       <div className="text-center mt-8">
         <p className="text-xl font-bold">
           Bidding Timer: 00:
-          {/* {timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds} */}
+          {timerSeconds < 6 ? `0${timerSeconds}` : timerSeconds}
         </p>
       </div>
 
       {/* <h1 className="text-center mt-3 font-semibold">the bid starts from {minBid}</h1> */}
-      <div className="flex items-center justify-center mt-8">
-        <input
-          type="text"
-          placeholder="Enter your bid"
-          value={bid}
-          onChange={(e) => setBid(e.target.value)}
-          className="p-2 mr-4 border bg-gray-600 text-gray-100 rounded-md"
-        />
-        <button
-          onClick={handleBid}
-          className="bg-blue-500 text-white px-6 py-2 rounded-md"
-        >
-          Place Bid
-        </button>
-      </div>
+      <div className="container mx-auto bg-gray-900 text-gray-100 p-8 min-h-screen">
+        <div className="flex items-center justify-center mt-8">
+          <input
+            type="text"
+            placeholder="Enter your bid"
+            value={bid}
+            onChange={(e) => setBid(e.target.value)}
+            className="p-2 mr-4 border bg-gray-600 text-gray-100 rounded-md"
+          />
+          <button
+            onClick={handleBid}
+            className="bg-blue-500 text-white px-6 py-2 rounded-md"
+          >
+            Place Bid
+          </button>
+        </div>
 
-      {/* Top Bidder */}
-      <div className="text-center mt-8">
-        <h2 className="text-2xl font-bold">Top Bidder: {topBidder}</h2>
+        <div className="text-center mt-8">
+          {/* <h2 className="text-2xl font-bold">Top Bidder: {topBidder}</h2> */}
+        </div>
       </div>
 
       {/* Previous Bids Box */}

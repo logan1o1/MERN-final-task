@@ -5,7 +5,7 @@ import Login from "../components/Login";
 export default function Header() {
   const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(false);
-  const auth = localStorage.getItem("user");
+  const auth = JSON.parse(localStorage.getItem("user"));
 
   const openLoginDialog = () => {
     setShowLogin(true);
@@ -36,6 +36,12 @@ export default function Header() {
                   onClick={logout}
                 >
                   Logout
+                </Link>
+                <Link
+                  to="/profile"
+                  className="text-gray-900 bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-2 lg:px-5 py-1.5  mr-2 focus:outline-none transition-all duration-300"
+                >
+                  {auth.name}
                 </Link>
               </>
             ) : (
