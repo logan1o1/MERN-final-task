@@ -20,13 +20,13 @@ export default function ItemsToday() {
   return (
     <div className="home-page w-full">
       <main>
-        <section className="featured-auctions font-bold text-2xl">
+        <section className="featured-auctions font-bold text-2xl mt-5">
           <h1 className="text-center">Featured Items</h1>
-          <div className="auction-carousel flex lg:space-x-3 pt-4 pb-4 pl-4 pr-74">
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ml-8 mb-8">
             {items.length > 0 ? (
               items.map((items) => (
                 items.userId === usId ? <></> :
-                <div className="w-[300px] rounded-md border">
+                <div className="w-[300px] rounded-md border bg-gray-900">
                   <img
                     src={String(items.image)}
                     alt="item"

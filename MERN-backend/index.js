@@ -74,5 +74,14 @@ app.put("/bidd/:id", async (req,resp) => {
     resp.send(result)
 })
 
+app.get("/bidders", async (req, resp) => {
+    const result = await Bidd.find();
+    if (result.length > 0) {
+        resp.send(result);
+    }else{
+        resp.send({ result: "no bidders found" })
+    }
+})
+
 
 app.listen(4000)

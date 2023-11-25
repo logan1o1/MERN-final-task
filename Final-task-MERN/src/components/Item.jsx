@@ -6,6 +6,9 @@ const Item = () => {
   // const [previousBids, setPreviousBids] = useState([]);
   // const bidInputRef = useRef(null);
   const [bid, setBid] = useState("");
+  const [bidders, setBidders] = useState([]);
+  const [topBidder, setTopBidder] = useState("");
+  const [minBid, setMinBid] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [seller, setSeller] = useState("");
@@ -23,7 +26,7 @@ const Item = () => {
     setImage(result.image);
     setSeller(result.seller);
     setDesc(result.desc);
-    // setBid(result.minBid);
+    setMinBid(result.minBid);
   };
 
   const bidDetails = async () => {
@@ -59,10 +62,14 @@ const Item = () => {
         },
       });
       newBid = await newBid.json();
+      let result = await fetch("http://localhost:4000/bidders");
+      result = await result.json();
       console.log(newBid);
 
       if (newBid.acknowledged) {
         setBid(bid);
+        setBidders(result);
+        console.log(bidders);
         console.log("Bid updated successfully");
       } else {
         console.error("Bid update failed");
@@ -86,8 +93,8 @@ const Item = () => {
   }, [handleBid]);
 
   return (
-    <div className="container mx-auto bg-gray-900 text-gray-100 p-8 min-h-screen">
-      <div className="mt-8 text-center">
+    <div className="container mx-auto text-gray-100 p-8 min-h-screen">
+      <div className="mt-6 text-center">
         <h1 className="text-3xl font-bold">{name}</h1>
       </div>
       <div className="mt-7 text-center">
@@ -116,16 +123,18 @@ const Item = () => {
         </div>
       </main>
 
-      <div className="text-center mt-8">
+      <div className="text-center mt-8 mb-8">
         <p className="text-xl font-bold">
           Bidding Timer: 00:
           {timerSeconds < 6 ? `0${timerSeconds}` : timerSeconds}
         </p>
       </div>
 
-      {/* <h1 className="text-center mt-3 font-semibold">the bid starts from {minBid}</h1> */}
-      <div className="container mx-auto bg-gray-900 text-gray-100 p-8 min-h-screen">
-        <div className="flex items-center justify-center mt-8">
+      <h1 className="text-center mt-3 font-semibold">
+        the bid starts from {minBid}
+      </h1>
+      <div className="container mx-auto text-gray-100 p-8">
+        <div className="flex flex-row items-center justify-center mt-2">
           <input
             type="text"
             placeholder="Enter your bid"
@@ -140,6 +149,15 @@ const Item = () => {
             Place Bid
           </button>
         </div>
+        {bidders.length > 0 ? (
+          bidders.map((bidder) => (
+            <div className="mt-9">
+              <h2 className="text-center">{bidder.bid}</h2>
+            </div>
+          ))
+        ) : (
+          <h2 className="text-center">No top bidders yet</h2>
+        )}
 
         <div className="text-center mt-8">
           {/* <h2 className="text-2xl font-bold">Top Bidder: {topBidder}</h2> */}
