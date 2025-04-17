@@ -5,7 +5,9 @@ const mongoose = require('mongoose')
 const User = require('./db/Users')
 const Item = require('./db/Items')
 const Bidd = require('./db/Bidding')
+const path = require('path')
 
+const __dirname = path.resolve()
 const app = express()
 const corsOption = {
     origin: ['https://mern-final-task-auction.vercel.app/', 'http://localhost:5173'],
@@ -83,5 +85,9 @@ app.get("/bidders", async (req, resp) => {
     }
 })
 
+app.use(exp.static(path.join(__dirname, "/Final-task-MERN/dist")));
+app.get("*", (req, resp) => {
+    resp.sendFile(path.join(__dirname, "Final-task-MERN", "dist", "index.html"));
+})
 
 app.listen(4000)
